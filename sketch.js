@@ -50,7 +50,7 @@ divisions.push(new Divisions(k,height-divisionHeight/2,10,divisionHeight));
 
 function draw() {
   background(0); 
-  
+  Engine.update(engine);
   ground.display();
  /* division1.display(); 
   division2.display();
