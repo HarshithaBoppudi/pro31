@@ -3,19 +3,22 @@ const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
+
 var engine, world;
 var particles=[];
 var plinkos=[];
 var divisions=[];
 var divisionHeight=300;
-
-
+var score=0;
+var turn=0;
+var gameState=play;
 function setup() {
   createCanvas(480,700);
   engine = Engine.create();
   world = engine.world;
  // createSprite(400, 200, 50, 50);
 ground= new Ground(240,690,480,20);
+
 /*division1=new Divisions(10,530,10,250)
 division2=new Divisions(80,530,10,250);
 division3=new Divisions(160,530,10,250);
@@ -50,8 +53,11 @@ divisions.push(new Divisions(k,height-divisionHeight/2,10,divisionHeight));
 
 function draw() {
   background(0); 
+  textSize(30);
+  text("score:"+score,200,50);
   Engine.update(engine);
   ground.display();
+  
  /* division1.display(); 
   division2.display();
   division3.display();
@@ -80,4 +86,10 @@ function draw() {
 
 
  // drawSprites();
+}
+function mousePressed(){
+  if(gameState!=="end"){
+    count++
+    particle=new Particle(mouseX,10,10,10)
+  }
 }
